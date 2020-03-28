@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>CT_SCAN_Detection_tool</RootNamespace>
+  </PropertyGroup>
+
+
+
+</Project>
