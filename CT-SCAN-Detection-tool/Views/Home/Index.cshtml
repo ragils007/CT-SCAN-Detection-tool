@@ -1,8 +1,24 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="text-center">
+        <form asp-action="MakePredictionRequest" asp-controller="Home" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="AttachedFile" class="form-control-file" />
+                <span asp-validation-for="AttachedFile" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Send</button>
+        </form>
+        <p>Score (@Model?.Procent%):</p>
+        @if (Model != null)
+        {
+            @Html.Raw(Model?.Result)
+            <div id="image-gallery-3" class="cf  @Model?.Class">
+                <img src="@Model.Src" data-high-res-src="@Model.Src" alt="" class="pannable-image">
+
+            </div>
+        }
+    </div>
